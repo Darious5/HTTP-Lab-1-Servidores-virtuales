@@ -10,9 +10,10 @@
 cp -v /vagrant/files/ns1.olimpo.test/apache2.conf /etc/apache2
 cp -v /vagrant/files/ns1.olimpo.test/apolo.olimpo.test.conf /etc/apache2/sites-available
 cp -v /vagrant/files/ns1.olimpo.test/atenea.olimpo.test.conf /etc/apache2/sites-available
-
-systemctl restart named
-systemctl status named
+ln -s /etc/apache2/sites-available/apolo.olimpo.test.conf /etc/apache2/sites-enabled
+ln -s /etc/apache2/sites-available/atenea.olimpo.test.conf /etc/apache2/sites-enabled
+systemctl restart apache2
+systemctl status apache2
 #
 # Habilitar los servidores virtuales
 #
